@@ -99,3 +99,7 @@ X_test_unscaled = min_max_inv(X_test, scaler)
 print("y_test_unscaled: ", y_test_unscaled)
 print("y_pred_unscaled: ", y_pred_unscaled)
 
+# Save the model
+import joblib
+joblib.dump(model, 'model.joblib')
+
