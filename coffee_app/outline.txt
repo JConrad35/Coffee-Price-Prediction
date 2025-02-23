@@ -1,7 +1,0 @@
-my_fastapi_app/
-├── main.py          # Entry point for the FastAPI app
-├── model.py         # Handles model loading and prediction logic
-├── routes.py        # Defines API endpoints (e.g., /predict)
-├── config.py        # Contains configuration variables (e.g., model path)
-├── requirements.txt # Lists dependencies
-└── Dockerfile       # (Optional) Containerization instructions
