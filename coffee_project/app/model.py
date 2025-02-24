@@ -45,6 +45,9 @@ if __name__ == "__main__":
     model = load_model(model_path)
     scaler = load_scaler(scaler_path)
     
+    # Load y_test from the .npy file
+    y_test = np.load(r'C:\Users\julia\OneDrive\Documents\ML Projects\Coffee-Price-Prediction\coffee_project\y_test.npy')
+
     input_data = y_test[-11:-1]  # Use the last 11 values of y_test, excluding the very last value
     actual_value = [y_test[-1]]  # Use the very last value of y_test
     actual_value = scaler.inverse_transform(np.array(actual_value).reshape(-1, 1))
