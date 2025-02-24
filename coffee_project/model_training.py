@@ -102,3 +102,4 @@ print("y_pred_unscaled: ", y_pred_unscaled)
 # Save the model
 import joblib
 joblib.dump(model, 'model.joblib')
+joblib.dump(scaler, 'scaler.joblib')

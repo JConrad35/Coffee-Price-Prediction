@@ -1,6 +1,7 @@
 import joblib
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error
 
 # Load the trained model from the joblib file
 def load_model(model_path):
@@ -29,6 +30,14 @@ def make_prediction(model, scaler, input_data):
     prediction = scaler.inverse_transform(prediction_scaled)  # Inverse transform to get unscaled prediction
     return prediction
 
+def calculate_rmse(actual, predicted):
+    """
+    Calculate the Root Mean Squared Error (RMSE) between actual and predicted values.
+    """
+    rmse = np.sqrt(mean_squared_error(actual, predicted))
+    return rmse
+
+
 # Example usage
 if __name__ == "__main__":
     model_path = r'C:\Users\julia\OneDrive\Documents\ML Projects\Coffee-Price-Prediction\coffee_project\model.joblib'
@@ -38,7 +47,13 @@ if __name__ == "__main__":
     scaler = load_scaler(scaler_path)
     
     # Example input data (sequence of 10 time steps)
-    input_data = [2.09, 2.09, 2.39, 2.31, 2.48, 2.57, 2.61, 2.78, 2.77, 3.05]
-    
+    # from model_training import y_test_unscaled  # Import y_test_unscaled from model_training.py
+
+    input_data = y_test_unscaled[-11:-1]  # Use the last 11 values of y_test_unscaled, excluding the very last value
+    actual_value = [y_test_unscaled[-1]]  # Use the very last value of y_test_unscaled
+
     prediction = make_prediction(model, scaler, input_data)
+    rmse = calculate_rmse(actual_value, prediction)
+    print(f"RMSE: {rmse}")
     print(f"Prediction: {prediction}")
+    print(y_test_unscaled[-1])
