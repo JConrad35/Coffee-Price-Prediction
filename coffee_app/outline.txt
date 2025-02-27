@@ -1,0 +1,7 @@
+your_project/
+├── app/
+│   ├── __init__.py
+│   ├── model.py
+│   └── schemas.py
+├── main.py
+└── requirements.txt
