@@ -8,7 +8,7 @@ import scipy.stats as stats
 model = load_model('C:/Users/julia/OneDrive/Documents/ML Projects/Coffee-Price-Prediction/coffee_project/best_model.h5')
 
 # Monte Carlo Dropout
-n_samples = 100
+n_samples = 300
 
 def monte_carlo_dropout_predict(model, X, n_samples):
     predictions = []

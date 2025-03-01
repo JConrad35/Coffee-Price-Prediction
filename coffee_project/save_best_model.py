@@ -5,16 +5,14 @@ from keras.callbacks import ModelCheckpoint
 
 model = Sequential([
     LSTM(units=150, activation='relu', return_sequences=True, input_shape=(X_train.shape[1], 1)),
-    Dropout(0.2),
+    Dropout(0.5),
     BatchNormalization(),
     LSTM(units=75, activation='relu', return_sequences=True),
-    Dropout(0.2),
+    Dropout(0.5),
     BatchNormalization(),
     LSTM(units=75, activation='relu', return_sequences=True),
-    Dropout(0.2),
     BatchNormalization(),
     LSTM(units=50, activation='relu', return_sequences=False),
-    Dropout(0.2),
     BatchNormalization(),
     Dense(units=25, activation='relu'),
     Dense(1),
